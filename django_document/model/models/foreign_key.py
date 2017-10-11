@@ -36,3 +36,8 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if self.teacher and self.teacher.pk == self.pk:
+            self.teacher = None
+        super().save(*args, **kwargs)
