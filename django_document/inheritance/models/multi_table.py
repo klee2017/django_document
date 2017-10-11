@@ -20,3 +20,6 @@ class Restaurant(Place):
 
     def __str__(self):
         return f'{self.name} restaurant'
+
+# class Supplier(Place):
+#     customers = models.ManyToManyField(Place, related_name='customer_supplier_set')
