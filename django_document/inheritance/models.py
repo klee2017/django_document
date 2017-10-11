@@ -1,7 +1,20 @@
 from django.db import models
 
 
+class School(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class CommonInfo(models.Model):
+    school = models.ForeignKey(
+        School,
+        blank=True,
+        null=True,
+        related_name='%(app_label)s_%(class)s_set',
+    )
     name = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
 
